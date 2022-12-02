@@ -20,7 +20,7 @@
         class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-3 g-5"
       >
         <PageCard
-          v-for="objTv in arrMovies"
+          v-for="objTv in arrTv"
           :key="objTv.id"
           :title="objTv.name"
           :originalTitle="objTv.original_name"
