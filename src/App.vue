@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderPage @queryChange="search" />
-    <MainPage :arrMovies="arrMovies" />
+    <MainPage :arrMovies="arrMovies" :arrTv="arrTV" />
   </div>
 </template>
 

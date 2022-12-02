@@ -170,6 +170,7 @@ nav .logo {
   border-radius: 2px;
   color: #fff;
   border: 0;
+  cursor: pointer;
 }
 @media screen and (min-width: 550px) {
   .jumbotron button {
