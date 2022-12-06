@@ -5,25 +5,41 @@
       <img class="thumbnail" :src="imgUrl" :alt="title" />
       <h3 class="name">{{ title }}</h3>
       <div class="info">
-        <p class="year">1978</p>
+        <p class="year">{{ date }}</p>
         <div class="stars">
-          <img src="../components/img/star-solid.svg" alt="" />
-          <img src="../components/img/star-solid.svg" alt="" />
-          <img src="../components/img/star-solid.svg" alt="" />
+          <font-awesome-icon
+            v-for="star in score.score"
+            :key="star"
+            icon="fa-solid fa-star"
+            :style="{ color: 'yellow' }"
+          />
+          <font-awesome-icon
+            v-for="star in score.maxScore - score.score"
+            :key="star"
+            icon="fa-regular fa-star"
+            :style="{ color: 'yellow' }"
+          />
         </div>
       </div>
     </div>
     <div class="back">
       <div class="cards-info">
-        <p class="game-stat">1970<span>Year</span></p>
-        <p class="game-stat">1700<span>stream</span></p>
+        <p class="game-stat">{{ date }}<span>Release Date</span></p>
       </div>
       <button class="mybtn">See more</button>
       <div class="stars">
-        <img src="../components/img/star-solid.svg" alt="" />
-        <img src="../components/img/star-solid.svg" alt="" />
-        <img src="../components/img/star-solid.svg" alt="" />
-        <img src="../components/img/star-solid.svg" alt="" />
+        <font-awesome-icon
+          v-for="item in score.score"
+          :key="item"
+          icon="fa-solid fa-star"
+          :style="{ color: 'yellow' }"
+        />
+        <font-awesome-icon
+          v-for="item in score.maxScore - score.score"
+          :key="item"
+          icon="fa-regular fa-star"
+          :style="{ color: 'yellow' }"
+        />
       </div>
     </div>
 
@@ -42,8 +58,9 @@ export default {
     title: String,
     originalTitle: String,
     language: String,
-    score: Number,
+    score: Object,
     imgUrl: String,
+    date: String,
   },
 };
 </script>

@@ -9,8 +9,9 @@
           :key="objMovie.id"
           :title="objMovie.title"
           :originalTitle="objMovie.original_title"
+          :date="objMovie.release_date"
           :language="objMovie.original_language"
-          :score="objMovie.vote_average"
+          :score="convertScore(objMovie.vote_average)"
           :imgUrl="'https://image.tmdb.org/t/p/w342' + objMovie.poster_path"
         />
       </div>
@@ -24,8 +25,9 @@
           :key="objTv.id"
           :title="objTv.name"
           :originalTitle="objTv.original_name"
+          :date="objTv.release_date"
           :language="objTv.original_language"
-          :score="objTv.vote_average"
+          :score="convertScore(objTv.vote_average)"
           :imgUrl="'https://image.tmdb.org/t/p/w342' + objTv.poster_path"
         />
       </div>
@@ -43,6 +45,18 @@ export default {
   props: {
     arrMovies: Array,
     arrTv: Array,
+  },
+  methods: {
+    convertScore(score) {
+      //score : 10 = voto_desiderato : 5;
+      // voto_desiderato => score * 5 / 10 => *0.5 => score / 2
+      const maxScore = 5;
+      const originalMaxScore = 10;
+      return {
+        score: Math.ceil((score * maxScore) / originalMaxScore),
+        maxScore: maxScore,
+      };
+    },
   },
 };
 </script>
